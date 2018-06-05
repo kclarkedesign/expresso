@@ -28,8 +28,8 @@ db.serialize(() => {
 			"`rate` TEXT NOT NULL, " +
 			"`date` INTEGER NOT NULL, " +
 			"`employee_id` INTEGER NOT NULL, " +
-			"PRIMARY KEY(`id`), "
-			"FOREIGN KEY(`employee_id`) REFERENCES `Employees` (`id`) )"
+			"PRIMARY KEY(`id`), " +
+			"FOREIGN KEY(`employee_id`) REFERENCES `Employee` (`id`) )"
 	);
 	db.run('DROP TABLE IF EXISTS Menu', error => {
 		if(error) {
@@ -51,10 +51,11 @@ db.serialize(() => {
 		"CREATE TABLE IF NOT EXISTS `MenuItem` ( " +
 			"`id` INTEGER NOT NULL, " +
 			"`name` TEXT NOT NULL, " +
-			"`description` INTEGER NOT NULL, " +
+			"`description` TEXT, " +
 			"`inventory` TEXT NOT NULL, " +
 			"`price` INTEGER NOT NULL, " +
-			"PRIMARY KEY(`id`), " +
+			"`menu_id` INTEGER NOT NULL, " +
+			"PRIMARY KEY (`id`), " +
 			"FOREIGN KEY(`menu_id`) REFERENCES `Menu` (`id`) )"
 	);
 });

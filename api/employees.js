@@ -17,9 +17,9 @@ employeesRouter.get('/', (res, req, next) => {
 
 employeesRouter.post('/', (req, res, next) => {
 	const employee = req.body.employee;
-	const name;
-	const position;
-	const wage;
+	const name = employee.name;
+	const position = employee.position;
+	const wage = employee.wage;
 	const isCurrentEmployee = employee.isCurrentEmployee === 0 ? 0 : 1;
 
 	if(!name || !position || !wage) {
